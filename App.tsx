@@ -61,6 +61,7 @@ const Section: React.FC<{
         {children}
       </Text>
     </View>
+    
   );
 };
 
