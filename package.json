@@ -8,22 +8,44 @@
     "start": "react-native start",
     "build": "cd android && gradlew assembleRelease",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.15",
+    "@apollo/react-hooks": "^4.0.0",
     "@babel/preset-env": "^7.1.6",
+    "@cobuildlab/react-simple-state": "^0.6.2",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/stack": "^5.14.4",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-rest": "^0.8.0-beta.0",
     "d": "^1.0.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jsdoc": "^32.3.0",
     "eslint-plugin-react": "^7.23.2",
+    "graphql": "^15.5.0",
+    "graphql-anywhere": "^4.2.7",
+    "graphql-tag": "^2.11.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "qs": "^6.10.1",
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "0.64.0",
+    "react-native-auth0": "^2.8.1",
+    "react-native-dotenv": "^2.5.5",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.1.0",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.1.1",
+    "react-navigation": "^4.4.4",
+    "react-navigation-stack": "^2.10.4",
+    "subscriptions-transport-ws": "^0.9.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -31,6 +53,8 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.20",
     "@types/react-native": "^0.64.0",
+    "@types/react-native-auth0": "^2.5.6",
+    "@types/react-native-dotenv": "^0.2.0",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^26.6.3",
     "eslint": "^7.14.0",
@@ -52,19 +76,19 @@
       "jsx",
       "json",
       "node"
+    ], 
+    "testPathIgnorePatterns": [
+      "<rootDir>/(android|ios|node_modules)/"
+    ],
+    "testRegex": [
+      ".test.ts$",
+      ".test.tsx$"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "pre-push:": "npm test"
-    }
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "npm run build"
+      "eslint --fix"
     ]
   }
 }
