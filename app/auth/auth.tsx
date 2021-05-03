@@ -1,7 +1,9 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import { Alert, Button, StyleSheet, Text, View } from 'react-native';
-import Auth0 from 'react-native-auth0';
-import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from '@env';
+import { useEvent } from '@cobuildlab/react-simple-state';
+import jwt_decode from 'jwt-decode';
+import { TokensEvent, LoginEvent } from './auth-events';
+import { auth0 } from '../../src/auth0/client';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,53 +19,34 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Auth = (): ReactElement => {
-  const env = {
-    clientId: AUTH0_CLIENT_ID,
-    domain: AUTH0_DOMAIN,
-  };
-  const auth0 = new Auth0(env);
-  const [accessToken, setAccessToken] = useState('');
+export const Auth = ({ navigation }): ReactElement => {
+  const loggedIn = useEvent(LoginEvent);
 
-  /**
-   *
-   */
-  function onLogin(): void {
+  const onLogin = (): void => {
     auth0.webAuth
       .authorize({
         scope: 'openid profile email',
       })
-      .then((credentials) => {
-        Alert.alert(`AccessToken: ${credentials.accessToken}`);
-        setAccessToken(credentials.accessToken);
+      .then((credentials): void => {
+        const object = {
+          idToken: jwt_decode(credentials.idToken),
+          accessToken: credentials.accessToken,
+        };
+        TokensEvent.dispatch(object);
+        LoginEvent.dispatch(true);
+        navigation.navigate('Dashboard');
+        Alert.alert(`AccessToken: ${credentials.idToken}`);
       })
       .catch((error) => console.log(error));
+  };
+  if (loggedIn) {
+    navigation.navigate('Dashboard');
   }
-
-  /**
-   *
-   */
-  function onLogout(): void {
-    auth0.webAuth
-      .clearSession()
-      .then(() => {
-        Alert.alert('Logged out!');
-        setAccessToken('');
-      })
-      .catch((error) => {
-        console.log(`Log out cancelled ${error}`);
-      });
-  }
-
-  const loggedIn = accessToken !== '';
   return (
     <View style={styles.container}>
       <Text style={styles.header}> Auth0Sample - Login </Text>
-      <Text>You are{loggedIn ? ' ' : ' not '}logged in . </Text>
-      <Button
-        onPress={loggedIn ? onLogout : onLogin}
-        title={loggedIn ? 'Log Out' : 'Log In'}
-      />
+      <Text>You are not logged in . </Text>
+      <Button onPress={onLogin} title="Log In" />
     </View>
   );
 };

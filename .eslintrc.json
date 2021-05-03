@@ -79,6 +79,7 @@
       "jsdoc/check-alignment": "error",
       "jsdoc/check-param-names": "error",
       "jsdoc/check-tag-names": "error",
+      "react-hooks/exhaustive-deps":"off",
       "jsdoc/check-types": "error",
       "jsdoc/implements-on-classes": "error",
       "jsdoc/newline-after-description": "error",
@@ -129,5 +130,14 @@
           "extensions": [".ts", ".tsx"]
         }
       ]
-    }
+    },
+    "overrides": [
+      {
+        // enable the rule specifically for TypeScript files
+        "files": ["*.ts", "*.tsx"],
+        "rules": {
+          "@typescript-eslint/explicit-module-boundary-types": ["off"]
+        }
+      }
+    ]
   }

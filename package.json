@@ -23,6 +23,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
     "apollo-link-rest": "^0.8.0-beta.0",
+    "crypto-js": "^3.1.9-1",
     "d": "^1.0.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
@@ -32,6 +33,7 @@
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.2.7",
     "graphql-tag": "^2.11.0",
+    "jwt-decode": "^3.1.2",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "qs": "^6.10.1",
@@ -76,7 +78,7 @@
       "jsx",
       "json",
       "node"
-    ], 
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/(android|ios|node_modules)/"
     ],
