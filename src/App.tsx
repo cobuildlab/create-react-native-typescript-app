@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import { AppNavigator } from '../src/navigation/AppNavigation';
-import { ApolloProvider } from '../src/apollo/ApolloProvider';
+import { AppNavigator } from './shared/navigation/AppNavigation';
+import { ApolloProvider } from './shared/apollo/ApolloProvider';
 
 export const App = (): ReactElement => {
   return (

@@ -7,7 +7,7 @@ import { TokensEvent, LoginEvent } from './auth-events';
 import {
   CURRENT_USER_QUERY,
   USER_SIGN_UP_MUTATION,
-} from '../../src/auth-callback/auth-callback-queries';
+} from '../../shared/auth-callback/auth-callback-queries';
 
 // TODO add loading component
 /**
