@@ -28,7 +28,7 @@
     "jwt-decode": "^3.1.2",
     "qs": "^6.10.1",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.64.1",
     "react-native-auth0": "^2.8.1",
     "react-native-dotenv": "^2.5.5",
     "react-native-gesture-handler": "^1.10.3",
