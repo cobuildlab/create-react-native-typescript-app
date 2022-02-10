@@ -91,6 +91,5 @@ export function createApolloClient(
   return client;
 }
 
-export const apolloClient: ApolloClient<NormalizedCacheObject> = createApolloClient(
-  () => OnTokenEvent.get()?.token as string,
-);
+export const apolloClient: ApolloClient<NormalizedCacheObject> =
+  createApolloClient(() => OnTokenEvent.get()?.token as string);
