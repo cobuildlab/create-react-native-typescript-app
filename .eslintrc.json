@@ -48,7 +48,7 @@
       "no-prototype-builtins": "off",
       "import/no-default-export": "error",
       "import/prefer-default-export": "off",
-      "no-use-before-define": "error",
+      "no-use-before-define": "off",
       "no-restricted-imports": [
         "error",
         {
@@ -70,7 +70,7 @@
       "@typescript-eslint/no-use-before-define": [
         "error",
         {
-          "functions": true,
+          "functions": false,
           "classes": true,
           "variables": true,
           "typedefs": true
@@ -79,7 +79,7 @@
       "jsdoc/check-alignment": "error",
       "jsdoc/check-param-names": "error",
       "jsdoc/check-tag-names": "error",
-      "react-hooks/exhaustive-deps":"error",
+      "react-hooks/exhaustive-deps":"off",
       "jsdoc/check-types": "error",
       "jsdoc/implements-on-classes": "error",
       "jsdoc/newline-after-description": "error",
@@ -90,11 +90,11 @@
       "jsdoc/require-param": "error",
       "jsdoc/require-param-description": "error",
       "jsdoc/require-param-name": "error",
-      "jsdoc/require-param-type": "error",
+      "jsdoc/require-param-type": "off",
       "jsdoc/require-returns": "error",
       "jsdoc/require-returns-check": "error",
       "jsdoc/require-returns-description": "error",
-      "jsdoc/require-returns-type": "error",
+      "jsdoc/require-returns-type": "off",
       "jsdoc/valid-types": "error",
       "indent": ["error", 2],
       "semi": ["error", "always"],
