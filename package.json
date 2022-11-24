@@ -76,6 +76,9 @@
       "json",
       "node"
     ],
+    "transformIgnorePatterns": [
+      "!node_modules/"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/(android|ios|node_modules)/"
     ],
