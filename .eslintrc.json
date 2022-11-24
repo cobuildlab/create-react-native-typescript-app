@@ -10,7 +10,7 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     },
-    "ignorePatterns": [".eslintrc.js"],
+    "ignorePatterns": [".eslintrc.js","babel.config.js","metro.config.js"],
     "extends": [
       "airbnb/hooks",
       "airbnb-typescript",
