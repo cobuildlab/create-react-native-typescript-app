@@ -10,13 +10,11 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     },
+    "ignorePatterns": [".eslintrc.js","babel.config.js","metro.config.js"],
     "extends": [
       "airbnb/hooks",
       "airbnb-typescript",
       "eslint:recommended",
-      "prettier",
-      "prettier/react",
-      "prettier/@typescript-eslint",
       "plugin:jest/recommended",
       "plugin:cypress/recommended",
       "plugin:jsx-a11y/recommended",
