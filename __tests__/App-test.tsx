@@ -6,5 +6,7 @@ import { App } from '../src/App';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  renderer.create(<App />);
+  const component = renderer.create(<App />);
+  const app = component.toJSON();
+  expect(app).toMatchSnapshot();
 });
